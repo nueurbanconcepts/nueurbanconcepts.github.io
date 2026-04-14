@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobility Fee Database — NUE Urban Concepts</title>
+  <meta name="description" content="Access the NUE Urban Concepts Mobility Fee Database — a comprehensive resource for mobility fee rates and programs across Florida.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="images/logo-white.png">
+  <style>
+    .db-search-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .db-search-bar input,
+    .db-search-bar select {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 3px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .db-search-bar input { flex: 1; min-width: 200px; }
+    .db-search-bar input:focus,
+    .db-search-bar select:focus { border-color: var(--green); }
+    .db-table-wrap { overflow-x: auto; }
+    .db-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .db-table th {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-glow);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--dark-border);
+      white-space: nowrap;
+    }
+    .db-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--dark-border);
+      color: var(--gray-light);
+      vertical-align: top;
+    }
+    .db-table tr:hover td { background: var(--dark-card); }
+    .db-table .city-name { color: var(--white); font-weight: 400; }
+    .db-badge {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      background: rgba(20,87,3,0.25);
+      color: var(--green-glow);
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="images/logo-white.png" alt="NUE Urban Concepts"></a>
+      <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="our-work.html">Our Work</a></li>
+        <li><a href="innovation.html">Innovation</a></li>
+        <li><a href="mobility-cohort.html">Mobility Cohort</a></li>
+        <li><a href="mobility-fee-database.html">Mobility Fee Database</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <span class="section-label fade-up">Resource</span>
+      <h1 class="fade-up delay-1">Mobility Fee Database</h1>
+      <div class="divider"></div>
+      <p class="fade-up delay-2">A comprehensive reference of mobility fee rates, programs, and adoption dates across Florida municipalities. Updated regularly by the NUE Urban Concepts team.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+
+      <div class="db-search-bar">
+        <input type="text" id="dbSearch" placeholder="Search by city, county, or region…" aria-label="Search database">
+        <select id="dbFilter" aria-label="Filter by type">
+          <option value="">All Types</option>
+          <option value="mobility">Mobility Fee</option>
+          <option value="impact">Impact Fee</option>
+          <option value="both">Both</option>
+        </select>
+      </div>
+
+      <div class="db-table-wrap">
+        <table class="db-table" id="dbTable">
+          <thead>
+            <tr>
+              <th>Jurisdiction</th>
+              <th>Type</th>
+              <th>Region</th>
+              <th>Status</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="dbBody">
+            <tr>
+              <td class="city-name">Alachua County</td>
+              <td><span class="db-badge">Impact Fee</span></td>
+              <td>North Central FL</td>
+              <td>Active</td>
+              <td>Update completed 2023</td>
+            </tr>
+            <tr>
+              <td class="city-name">City of St. Augustine</td>
+              <td><span class="db-badge">Mobility Fee</span></td>
+              <td>Northeast FL</td>
+              <td>Active</td>
+              <td>Implementation ongoing</td>
+            </tr>
+            <tr>
+              <td class="city-name">City of Longwood</td>
+              <td><span class="db-badge">Mobility Fee</span></td>
+              <td>Central FL</td>
+              <td>Active</td>
+              <td>Plan &amp; fee adopted</td>
+            </tr>
+            <tr>
+              <td class="city-name">City of Oviedo</td>
+              <td><span class="db-badge">Mobility Fee</span></td>
+              <td>Central FL</td>
+              <td>Active</td>
+              <td>Plan &amp; fee adopted</td>
+            </tr>
+            <tr>
+              <td class="city-name">Village of Indiantown</td>
+              <td><span class="db-badge">Mobility Fee</span></td>
+              <td>Southeast FL</td>
+              <td>Active</td>
+              <td>Plan &amp; fee adopted</td>
+            </tr>
+            <tr>
+              <td class="city-name">City of Palm Beach Gardens</td>
+              <td><span class="db-badge">Mobility Fee</span></td>
+              <td>Southeast FL</td>
+              <td>Active</td>
+              <td>Updated 2023</td>
+            </tr>
+            <tr>
+              <td class="city-name">Okaloosa County</td>
+              <td><span class="db-badge">Mobility Fee</span></td>
+              <td>Panhandle</td>
+              <td>Active</td>
+              <td>County-wide plan</td>
+            </tr>
+            <tr>
+              <td class="city-name">City of Cape Coral</td>
+              <td><span class="db-badge">Parking</span></td>
+              <td>Southwest FL</td>
+              <td>Active</td>
+              <td>South Cape Downtown</td>
+            </tr>
+            <tr>
+              <td class="city-name">Palm Beach Gardens</td>
+              <td><span class="db-badge">Impact Fee</span></td>
+              <td>Southeast FL</td>
+              <td>Active</td>
+              <td>Impact fee update</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 2rem; padding: 1.5rem; background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 4px; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+        <div>
+          <p style="font-size: 0.88rem; color: var(--gray);">This database is actively maintained and expanded. Know of a jurisdiction that should be included?</p>
+        </div>
+        <a href="contact.html" class="btn btn-outline" style="white-space: nowrap;">Submit a Record</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/logo-white.png" alt="NUE Urban Concepts">
+          <p>Improving quality of life in cities through planning, mobility, and smart urban design.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="our-work.html">Our Work</a></li>
+            <li><a href="innovation.html">Innovation</a></li>
+            <li><a href="mobility-cohort.html">Mobility Cohort</a></li>
+            <li><a href="mobility-fee-database.html">Mobility Fee Database</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <address>
+            <strong style="color: var(--gray-light); font-style: normal;">North Central Florida</strong><br>
+            747 SW 2nd Ave IMB 28<br>Suite 190, Gainesville, FL 32601<br><br>
+            O: 833.NUC.8484<br>C: 352.363.0614
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> NUE Urban Concepts. All rights reserved.</p>
+        <p>Land Use · Mobility · Parking · Fees</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/scripts.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const searchInput = document.getElementById('dbSearch');
+    const filterSelect = document.getElementById('dbFilter');
+    const rows = document.querySelectorAll('#dbBody tr');
+
+    function filterTable() {
+      const q = searchInput.value.toLowerCase();
+      const f = filterSelect.value.toLowerCase();
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const badge = row.querySelector('.db-badge')?.textContent.toLowerCase() || '';
+        const matchSearch = !q || text.includes(q);
+        const matchFilter = !f || badge.includes(f);
+        row.style.display = matchSearch && matchFilter ? '' : 'none';
+      });
+    }
+    searchInput.addEventListener('input', filterTable);
+    filterSelect.addEventListener('change', filterTable);
+  </script>
+</body>
+</html>
