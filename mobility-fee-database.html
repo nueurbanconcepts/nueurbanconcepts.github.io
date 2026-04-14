@@ -360,7 +360,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const countyGroup = L.layerGroup().addTo(map);
 const cityGroup   = L.layerGroup().addTo(map);
 // Always keep city markers above county polygons
-map.on('layeradd', () => { cityGroup.bringToFront(); });
+map.on('layeradd', () => {
+  cityGroup.eachLayer(l => { if (l.bringToFront) l.bringToFront(); });
+});
 
 // layerMap: globalIdx -> { marker (Leaflet layer), feat, isPoint }
 const layerMap = new Map();
@@ -499,7 +501,7 @@ function renderTable() {
     if (show && !grp.hasLayer(marker)) grp.addLayer(marker);
     else if (!show && grp.hasLayer(marker)) grp.removeLayer(marker);
   });
-  cityGroup.bringToFront();
+  cityGroup.eachLayer(l => { if (l.bringToFront) l.bringToFront(); });
 
   document.getElementById('dbBody').innerHTML = visible.map(({ f, i }) => {
     const p = f.properties;
