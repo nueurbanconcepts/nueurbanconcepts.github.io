@@ -182,7 +182,8 @@ section{padding:6rem 0}
           </div>
           <div class="form-group form-full"><label for="message">Message</label><textarea id="message" placeholder="Tell us about your project or question…" required></textarea></div>
           <div class="form-full">
-            <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+            <button type="submit" class="btn btn-primary" style="width:100%">Open in Email Client</button>
+            <p style="font-size:0.8rem;color:var(--gray);margin-top:0.75rem;text-align:center">Clicking will open your email client with this message pre-filled. We typically respond within 1–2 business days.</p>
           </div>
         </div>
       </form>
@@ -214,8 +215,51 @@ section{padding:6rem 0}
     const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.card,.team-card,.project-card,.location-card,.stat-item').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition=`opacity 0.5s ease ${(i%6)*0.08}s,transform 0.5s ease ${(i%6)*0.08}s`;obs.observe(el)});
   }
-  const form=document.getElementById('contactForm');
-  if(form){form.addEventListener('submit',e=>{e.preventDefault();const btn=form.querySelector('[type="submit"]');const orig=btn.textContent;btn.textContent='Sending…';btn.disabled=true;setTimeout(()=>{btn.textContent='Message Sent ✓';btn.style.background='#1d7a04';setTimeout(()=>{btn.textContent=orig;btn.disabled=false;btn.style.background='';form.reset()},3000)},1200)})}
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const get = id => (document.getElementById(id)?.value || '').trim();
+
+      const firstName = get('firstName');
+      const lastName  = get('lastName');
+      const email     = get('email');
+      const phone     = get('phone');
+      const org       = get('org');
+      const topic     = get('topic');
+      const message   = get('message');
+
+      // Validate required fields
+      if (!firstName || !lastName || !email || !message) {
+        const btn = form.querySelector('[type="submit"]');
+        const orig = btn.textContent;
+        btn.textContent = 'Please fill in all required fields';
+        btn.style.background = '#993c1d';
+        setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2500);
+        return;
+      }
+
+      // Build email body
+      const body = [
+        `Name:         ${firstName} ${lastName}`,
+        `Email:        ${email}`,
+        phone    ? `Phone:        ${phone}`   : '',
+        org      ? `Organization: ${org}`     : '',
+        topic    ? `Topic:        ${topic}`   : '',
+        '',
+        '--- Message ---',
+        message,
+      ].filter(l => l !== null && l !== undefined).join('\n');
+
+      const subject = encodeURIComponent(
+        topic ? `NUE Urban Concepts Inquiry — ${topic}` : 'NUE Urban Concepts Website Inquiry'
+      );
+      const bodyEncoded = encodeURIComponent(body);
+
+      window.location.href = `mailto:nueurbanconcepts@gmail.com?subject=${subject}&body=${bodyEncoded}`;
+    });
+  }
   document.getElementById('year').textContent=new Date().getFullYear();
 });</script>
 </body></html>
