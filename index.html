@@ -143,6 +143,18 @@ section{padding:6rem 0}
 @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:var(--nav-height);left:0;right:0;background:var(--dark-surface);border-bottom:1px solid var(--dark-border);padding:1rem;gap:0.25rem}.intro-grid{grid-template-columns:1fr}.intro-stats{grid-template-columns:repeat(4,1fr)}.services-strip-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}}
 @media(max-width:600px){section{padding:4rem 0}.intro-stats{grid-template-columns:1fr 1fr}.services-strip-grid{grid-template-columns:1fr 1fr}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}.project-grid{grid-template-columns:1fr}}
 .services-strip .section-label{text-align:center;margin-bottom:1.75rem}
+/* ── Featured projects (exec summary cards) ── */
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.feature-card{display:flex;flex-direction:column;overflow:hidden;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:4px;transition:border-color var(--transition)}
+.feature-card:hover{border-color:var(--green-muted)}
+.feature-card:focus-visible{outline:2px solid var(--green-glow);outline-offset:3px}
+.feature-card img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#efefef}
+.feature-card-body{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:1rem;padding:1.1rem 1.25rem 1.3rem}
+.feature-card-title{font-size:1.1rem;line-height:1.2;letter-spacing:.04em;color:var(--white)}
+.feature-card .btn{margin-top:auto;padding:.55rem 1rem;font-size:.74rem;white-space:nowrap}
+.feature-card:hover .btn-outline{background:rgba(20,87,3,.2)}
+@media(max-width:1000px){.feature-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.feature-grid{grid-template-columns:1fr}}
 /* ── Core experience (focus areas) ── */
 .focus-areas{background:var(--dark-surface);border-bottom:1px solid var(--dark-border);padding:4.5rem 0;text-align:center}
 .focus-title{font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.4;max-width:980px;margin:0 auto;text-wrap:balance}
@@ -215,7 +227,7 @@ html.dialog-open{overflow:hidden}
 
 <section class="focus-areas" aria-labelledby="focus-title"><div class="container">
   <span class="section-label">Core Experience</span>
-  <h2 id="focus-title" class="focus-title">Impact Fees<span class="sep" aria-hidden="true">&bull;</span>Mobility Fees<span class="sep" aria-hidden="true">&bull;</span>Special Assessments<span class="sep" aria-hidden="true">&bull;</span>Special Districts<span class="sep" aria-hidden="true">&bull;</span>Public Facilities &amp; Infrastructure Sales Tax Initiatives</h2>
+  <h2 id="focus-title" class="focus-title">Impact Fees<span class="sep" aria-hidden="true">&bull;</span>Mobility Plans<span class="sep" aria-hidden="true">&bull;</span>Mobility Fees<span class="sep" aria-hidden="true">&bull;</span>Special Assessments<span class="sep" aria-hidden="true">&bull;</span>Special Districts<span class="sep" aria-hidden="true">&bull;</span>Public Facilities &amp; Infrastructure Sales Tax Initiatives</h2>
   <div class="divider"></div>
   <ul class="focus-grid">
     <li class="focus-tile"><svg class="focus-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M11 22l3.2-9.2A2.5 2.5 0 0 1 16.6 11h14.8a2.5 2.5 0 0 1 2.4 1.8L37 22"/>
@@ -257,12 +269,35 @@ html.dialog-open{overflow:hidden}
 <section><div class="container">
   <span class="section-label">Featured Projects</span>
   <h2>Our Work</h2><div class="divider"></div>
-  <div class="project-grid">
-    <a class="project-card" href="https://www.pbgfl.gov/860/Mobility" target="_blank" rel="noopener"><div class="project-placeholder"><img src="images/projects/palm-beach-gardens-render.jpg" alt="NUE Urban Concepts"></div><div class="project-card-label">City of Palm Beach Gardens Mobility Plan</div></a>
-    
-	  <a class="project-card" href="https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Transportation/Mobility-Plan" target="_blank" rel="noopener"><div class="project-placeholder"><img src="images/projects/gainesville-render.jpg" alt="NUE Urban Concepts"></div><div class="project-card-label">City of Gainesville Mobility Plan</div></a>
-    
-	  <a class="project-card" href="https://www.wpb.org/Departments/Development-Services/City-of-West-Palm-Beach-Mobility-Fee" target="_blank" rel="noopener"><div class="project-placeholder"><img src="images/projects/west-palm-beach-render.jpg" alt="NUE Urban Concepts"></div><div class="project-card-label">City of West Palm Beach Mobility Plan</div></a>
+  <div class="feature-grid">
+    <a class="feature-card" href="files/St-Augustine-exec-summary.pdf" target="_blank" rel="noopener">
+      <img src="images/projects/st-augustine-graphic.jpg" alt="Before-and-after view of San Marco Avenue with a multimodal way, plus a comparison of the daily person capacity of a car-oriented street and a multimodal street" width="1000" height="625" loading="lazy">
+      <div class="feature-card-body">
+        <h3 class="feature-card-title">City of St. Augustine Mobility Plan</h3>
+        <span class="btn btn-outline">Read Exec. Summary</span>
+      </div>
+    </a>
+    <a class="feature-card" href="files/Flagler-Beach-exec-summary.pdf" target="_blank" rel="noopener">
+      <img src="images/projects/flagler-beach-render.jpg" alt="Rendering of a redesigned Flagler Beach street with a green bike lane, high-visibility crosswalks, and a wide sidewalk" width="1000" height="625" loading="lazy">
+      <div class="feature-card-body">
+        <h3 class="feature-card-title">City of Flagler Beach Mobility Plan</h3>
+        <span class="btn btn-outline">Read Exec. Summary</span>
+      </div>
+    </a>
+    <a class="feature-card" href="files/Lake-Wales-exec-summary.pdf" target="_blank" rel="noopener">
+      <img src="images/projects/lake-wales-map.jpg" alt="Complete Streets Plan map for Lake Wales South from the City of Lake Wales Mobility Plan, highlighting Grove Avenue" width="1000" height="625" loading="lazy">
+      <div class="feature-card-body">
+        <h3 class="feature-card-title">City of Lake Wales Mobility Plan</h3>
+        <span class="btn btn-outline">Read Exec. Summary</span>
+      </div>
+    </a>
+    <a class="feature-card" href="files/Oviedo-exec-summary.pdf" target="_blank" rel="noopener">
+      <img src="images/projects/oviedo-reimagine.jpg" alt="Reimagining and Repurposing graphic comparing an existing road with four design options for the corridor" width="1000" height="625" loading="lazy">
+      <div class="feature-card-body">
+        <h3 class="feature-card-title">City of Oviedo Mobility Plan</h3>
+        <span class="btn btn-outline">Read Exec. Summary</span>
+      </div>
+    </a>
   </div>
   <div style="margin-top:2.5rem"><a href="our-work.html" class="btn btn-outline">View Recent Projects</a></div>
 </div></section>
