@@ -157,6 +157,11 @@ section{padding:6rem 0}
 .office-contact{margin-top:1rem}
 .office strong{color:var(--gray-light)}
 @media(prefers-reduced-motion:reduce){.office-switcher.is-ready .office{transition:none}}
+/* ── Two-column splits (stack on mobile) ── */
+.split{display:grid;align-items:start}
+.split-even{grid-template-columns:1fr 1fr;gap:4rem}
+.split-wide{grid-template-columns:1fr 1.5fr;gap:5rem}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:3rem}}
 </style>
 </head>
 <body>
@@ -178,7 +183,7 @@ section{padding:6rem 0}
 </div></header>
 
 <section><div class="container">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
+  <div class="split split-even">
     <div>
       <span class="section-label">Our Vision</span>
       <h2>Communities Built<br>for <span class="green">People</span></h2>
