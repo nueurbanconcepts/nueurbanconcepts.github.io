@@ -131,7 +131,7 @@ section{padding:6rem 0}
 .stat-number{font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--green-glow);line-height:1;display:block;margin-bottom:0.35rem}
 .stat-label{font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);font-family:var(--font-display);font-weight:500}
 .services-strip{background:var(--dark-surface);border-top:1px solid var(--dark-border);border-bottom:1px solid var(--dark-border);padding:3rem 0}
-.services-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.services-strip-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;text-align:center}
 .service-item h4{font-family:var(--font-display);font-size:1rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem}
 .service-item p{font-size:0.88rem}
 .service-dot{width:8px;height:8px;background:var(--green);border-radius:50%;margin:0 auto 1rem}
@@ -183,6 +183,23 @@ html.dialog-open{overflow:hidden}
 .img-dialog-close svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .img-dialog img{display:block;width:auto;height:auto;max-width:calc(96vw - 2px);max-height:calc(94vh - 51px);object-fit:contain;background:#efefef}
 @media(prefers-reduced-motion:reduce){.img-dialog[open]{animation:none}}
+@media(max-width:1000px){.services-strip-grid{grid-template-columns:repeat(2,1fr)}.service-item:last-child:nth-child(odd){grid-column:1/-1}}
+/* ── Footer office switcher ── */
+.office-switcher .office{margin-bottom:.9rem}
+.office-switcher.is-ready .office-slides{display:grid}
+.office-switcher.is-ready .office{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s}
+.office-switcher.is-ready .office.is-active{opacity:1;visibility:visible;transition-delay:0s}
+.office-nav{display:none}
+.office-switcher.is-ready .office-nav{display:flex;align-items:center;gap:.6rem;margin-top:.85rem}
+.office-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;background:transparent;border:1px solid var(--dark-border);border-radius:3px;color:var(--gray-light);cursor:pointer;transition:border-color var(--transition),background var(--transition),color var(--transition)}
+.office-btn:hover{border-color:var(--green);background:rgba(20,87,3,.2);color:var(--white)}
+.office-btn:focus-visible{outline:2px solid var(--green-glow);outline-offset:2px}
+.office-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.office-count{min-width:3.4em;text-align:center;font-family:var(--font-display);font-size:.8rem;font-weight:600;letter-spacing:.1em;color:var(--gray)}
+.office-status{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.office-contact{margin-top:1rem}
+.office strong{color:var(--gray-light)}
+@media(prefers-reduced-motion:reduce){.office-switcher.is-ready .office{transition:none}}
 </style>
 </head>
 <body>
@@ -203,7 +220,7 @@ html.dialog-open{overflow:hidden}
     <div class="intro-text">
       <span class="section-label fade-up">Community Planning Consultants</span>
       <h1 class="fade-up delay-1">Planning Communities<br>That Work<br>For <span class="green">People</span></h1>
-      <p class="fade-up delay-2">NUE Urban Concepts advises communities on land use, mobility, parking, and fees — helping them create vibrant, equitable, and economically strong places.</p>
+      <p class="fade-up delay-2">NUE Urban Concepts advises communities on land use, mobility, parking, fees, and funding — helping them create vibrant, equitable, and economically strong places.</p>
       <div class="intro-actions fade-up delay-3">
         <a href="about.html" class="btn btn-primary">Learn About Us</a>
         <a href="our-work.html" class="btn btn-outline">See Our Work</a>
@@ -223,11 +240,12 @@ html.dialog-open{overflow:hidden}
   <div class="service-item"><div class="service-dot"></div><h4>Transportation Mobility</h4><p>Multimodal transportation planning for safe, accessible movement.</p></div>
   <div class="service-item"><div class="service-dot"></div><h4>Parking Management</h4><p>Strategic parking regulations and curbside management.</p></div>
   <div class="service-item"><div class="service-dot"></div><h4>Impact &amp; Mobility Fees</h4><p>Fair, legally defensible plan-based fee systems that fund infrastructure growth for new development.</p></div>
+  <div class="service-item"><div class="service-dot"></div><h4>Funding</h4><p>Assist with development of non-ad valorem assessments, special districts and sales tax initiatives to fund public facilities, infrastructure &amp; services.</p></div>
 </div></div></div>
 
 <section class="focus-areas" aria-labelledby="focus-title"><div class="container">
   <span class="section-label">Core Experience</span>
-  <h2 id="focus-title" class="focus-title">Impact Fees<span class="sep" aria-hidden="true">&bull;</span>Mobility Plans<span class="sep" aria-hidden="true">&bull;</span>Mobility Fees<span class="sep" aria-hidden="true">&bull;</span>Special Assessments<span class="sep" aria-hidden="true">&bull;</span>Special Districts<span class="sep" aria-hidden="true">&bull;</span>Public Facilities &amp; Infrastructure Sales Tax Initiatives</h2>
+  <h2 id="focus-title" class="focus-title">Impact Fees<span class="sep" aria-hidden="true">&bull;</span>Mobility Plans<span class="sep" aria-hidden="true">&bull;</span>Mobility Fees<span class="sep" aria-hidden="true">&bull;</span>Special Assessments<span class="sep" aria-hidden="true">&bull;</span>Non-Ad Valorem Assessments<span class="sep" aria-hidden="true">&bull;</span>Special Districts<span class="sep" aria-hidden="true">&bull;</span>Public Facilities &amp; Infrastructure Sales Tax Initiatives</h2>
   <div class="divider"></div>
   <ul class="focus-grid">
     <li class="focus-tile"><svg class="focus-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M11 22l3.2-9.2A2.5 2.5 0 0 1 16.6 11h14.8a2.5 2.5 0 0 1 2.4 1.8L37 22"/>
@@ -273,28 +291,28 @@ html.dialog-open{overflow:hidden}
     <a class="feature-card" href="files/St-Augustine-exec-summary.pdf" target="_blank" rel="noopener">
       <img src="images/projects/st-augustine-cover.jpg" alt="Before-and-after view of San Marco Avenue with a multimodal way, plus a comparison of the daily person capacity of a car-oriented street and a multimodal street" width="1000" height="625" loading="lazy">
       <div class="feature-card-body">
-        <h3 class="feature-card-title">City of St. Augustine<br>Mobility Plan</h3>
+        <h3 class="feature-card-title">City of St. Augustine</h3>
         <span class="btn btn-outline">Read Executive Summary</span>
       </div>
     </a>
     <a class="feature-card" href="files/Flagler-Beach-exec-summary.pdf" target="_blank" rel="noopener">
       <img src="images/projects/flagler-beach.jpg" alt="Rendering of a redesigned Flagler Beach street with a green bike lane, high-visibility crosswalks, and a wide sidewalk" width="1000" height="625" loading="lazy">
       <div class="feature-card-body">
-        <h3 class="feature-card-title">City of Flagler Beach<br>Mobility Plan</h3>
+        <h3 class="feature-card-title">City of Flagler Beach</h3>
         <span class="btn btn-outline">Read Executive Summary</span>
       </div>
     </a>
     <a class="feature-card" href="files/Lake-Wales-exec-summary.pdf" target="_blank" rel="noopener">
       <img src="images/projects/lake-wales.jpg" alt="Complete Streets Plan map for Lake Wales South from the City of Lake Wales Mobility Plan, highlighting Grove Avenue" width="1000" height="625" loading="lazy">
       <div class="feature-card-body">
-        <h3 class="feature-card-title">City of Lake Wales<br>Mobility Plan</h3>
+        <h3 class="feature-card-title">City of Lake Wales</h3>
         <span class="btn btn-outline">Read Executive Summary</span>
       </div>
     </a>
     <a class="feature-card" href="files/Oviedo-exec-summary.pdf" target="_blank" rel="noopener">
       <img src="images/projects/oviedo-cover.jpg" alt="Reimagining and Repurposing graphic comparing an existing road with four design options for the corridor" width="1000" height="625" loading="lazy">
       <div class="feature-card-body">
-        <h3 class="feature-card-title">City of Oviedo<br>Mobility Plan</h3>
+        <h3 class="feature-card-title">City of Oviedo</h3>
         <span class="btn btn-outline">Read Executive Summary</span>
       </div>
     </a>
@@ -337,7 +355,24 @@ html.dialog-open{overflow:hidden}
       <li><a href="about.html">About Us</a></li><li><a href="our-work.html">Our Work</a></li>
       <li><a href="mobility-fee-database.html">Mobility Fee Database</a></li><li><a href="contact.html">Contact Us</a></li>
     </ul></div>
-    <div class="footer-col"><h5>Contact</h5><address><strong style="color:var(--gray-light);font-style:normal">Southeast Florida</strong><br>2000 PGA Blvd Suite 4440<br>Palm Beach Gardens, FL 33408<br><br>833.NUC.8484<br>info@nueurbanconcepts.com</address></div>
+    <div class="footer-col"><h5>Contact</h5>
+    <div class="office-switcher" data-office-switcher>
+      <div class="office-slides">
+      <address class="office"><strong>Southeast Florida</strong><br>2000 PGA Blvd Suite 4440<br>Palm Beach Gardens, FL 33408</address>
+      <address class="office"><strong>Central Florida</strong><br>100 E. Pine Street, Suite 110<br>Orlando, FL 32801</address>
+      <address class="office"><strong>Northeast Florida</strong><br>245 Riverside Ave, Suite 100<br>Jacksonville, FL 32202</address>
+      <address class="office"><strong>North Florida</strong><br>747 SW 2nd Ave IMB 28, Suite 190<br>Gainesville, FL 32601</address>
+      <address class="office"><strong>Northwest Florida</strong><br>24990 Emerald Coast Pkwy, Suite 396<br>Destin, FL 32541</address>
+      </div>
+      <div class="office-nav">
+        <button type="button" class="office-btn" data-dir="-1" aria-label="Previous office"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <span class="office-count" aria-hidden="true">1 / 5</span>
+        <button type="button" class="office-btn" data-dir="1" aria-label="Next office"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <span class="office-status" role="status" aria-live="polite"></span>
+    </div>
+    <address class="office-contact">833.NUC.8484<br>info@nueurbanconcepts.com</address>
+  </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; <span id="year"></span> NUE Urban Concepts. All rights reserved.</p>
@@ -380,6 +415,29 @@ html.dialog-open{overflow:hidden}
   dlg.addEventListener('close',function(){
     document.documentElement.classList.remove('dialog-open');
     openBtn.focus();
+  });
+})();
+</script>
+<script>
+(function(){
+  var sw=document.querySelector('[data-office-switcher]');
+  if(!sw) return;
+  var slides=[].slice.call(sw.querySelectorAll('.office'));
+  if(slides.length<2) return;
+  var count=sw.querySelector('.office-count'), status=sw.querySelector('.office-status'), i=0;
+  function show(n,announce){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){
+      s.classList.toggle('is-active',k===i);
+      s.setAttribute('aria-hidden',k===i?'false':'true');
+    });
+    count.textContent=(i+1)+' / '+slides.length;
+    if(announce) status.textContent='Office '+(i+1)+' of '+slides.length+': '+slides[i].innerHTML.replace(/<br\s*\/?>/gi,', ').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
+  }
+  sw.classList.add('is-ready');
+  show(0,false);
+  [].forEach.call(sw.querySelectorAll('.office-btn'),function(b){
+    b.addEventListener('click',function(){show(i+parseInt(b.getAttribute('data-dir'),10),true)});
   });
 })();
 </script>
